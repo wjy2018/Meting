@@ -116,6 +116,16 @@ docker pull intemd/meting-api:latest
 docker run -d --name meting -p 3000:3000 intemd/meting-api:latest
 ```
 
+### Cloudflare Workers
+deprecated
+由于cf会自动去除x-real-ip以及在headers中加shit，网易云可能会失效。使用网易云的同学请尝试其他部署方式。
+
+在全球拥有数据中心，提供的域名被阻断，使用自有域名后速度很快。冷启动速度很快。
+
+fork本项目，依次点击actions/publish/run workflow。保持默认即可。待CI构建结束后下载cloudflare-workers.js并解压。在Workers创建一个Service，点右上角Quick edit。把cloudflare-workers.js的内容复制进去deploy即可。
+
+Deno Deploy
+
 ### 部署到vercel
 
 比较出名，提供的域名被阻断，使用自有域名后速度尚可。冷启动速度一般。
